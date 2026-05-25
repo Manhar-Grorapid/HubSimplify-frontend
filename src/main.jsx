@@ -20,10 +20,21 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-
       <Route path="/workflow/:id" element={<App />} />
+      <Route
+        path="/oauth-success"
+        element={(() => {
+          const params = new URLSearchParams(window.location.search);
 
-      <Route path="/oauth-success" element={<OAuthSuccess />} />
+          const userId = params.get("userId");
+
+          if (userId) {
+            localStorage.setItem("hubsimplify_user_id", userId);
+          }
+
+          return <h1>HELLLLLLOO</h1>;
+        })()}
+      />{" "}
     </Routes>
   </BrowserRouter>,
 );
