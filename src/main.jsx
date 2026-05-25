@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import ReactDOM from "react-dom/client";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -6,10 +7,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 
 function OAuthSuccess() {
-  return <h1>RANDOM-928374-TEST</h1>;
+  return (
+    <div>
+      <h1>HELLLLLLOO</h1>
+    </div>
+  );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
