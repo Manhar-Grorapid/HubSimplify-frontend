@@ -7,12 +7,14 @@ import App from "./App";
 import OAuthSuccess from "./pages/OAuthSuccess";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
 
-      <Route path="/workflow/:id" element={<App />} />
-      <Route path="/oauth-success" element={<OAuthSuccess />} />
-    </Routes>
-  </BrowserRouter>,
+        <Route path="/workflow/:id" element={<App />} />
+        <Route path="/oauth-success" element={<OAuthSuccess />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
 );
