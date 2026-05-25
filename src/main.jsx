@@ -7,17 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 
 function OAuthSuccess() {
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    const userId = params.get("userId");
-
-    if (userId) {
-      localStorage.setItem("hubsimplify_user_id", userId);
-
-      console.log("USER ID STORED:", userId);
-    }
-  }, []);
 
   return (
     <div>
