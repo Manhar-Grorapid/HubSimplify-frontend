@@ -1,12 +1,16 @@
 import React from "react";
-
 import ReactDOM from "react-dom/client";
 
-ReactDOM.createRoot(
-  document.getElementById("root")
-).render(
-
-  <h1>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <div
+    style={{
+      color: "red",
+      fontSize: "40px",
+      background: "white",
+      padding: "50px",
+      zIndex: 999999,
+    }}
+  >
     TEST WORKING
-  </h1>
+  </div>,
 );
