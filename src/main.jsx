@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/" element={<App />} />
 
       <Route path="/workflow/:id" element={<App />} />
+      <Route path="/oauth-success" element={<OAuthSuccess />} />
     </Routes>
   </BrowserRouter>,
 );
