@@ -42,7 +42,7 @@ function App() {
     try {
       console.log("SENDING REQUEST");
       const response = await axios.get(
-        `https://hubsimplify-backend.onrender.com/${customId || workflowId}`,
+        `https://hubsimplify-backend.onrender.com/workflow/${customId || workflowId}`,
       );
 
       const data = response.data;
