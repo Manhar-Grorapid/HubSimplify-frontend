@@ -10,15 +10,13 @@ function OAuthSuccess() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
 
-        <Route path="/workflow/:id" element={<App />} />
+      <Route path="/workflow/:id" element={<App />} />
 
-        <Route path="/oauth-success" element={<OAuthSuccess />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+      <Route path="/oauth-success" element={<OAuthSuccess />} />
+    </Routes>
+  </BrowserRouter>,
 );
