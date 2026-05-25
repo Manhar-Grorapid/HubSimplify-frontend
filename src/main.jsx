@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <Route path="/workflow/:id" element={<App />} />
 
-        <Route path="/oauth-success" element={<OAuthSuccess />} />
+        <Route path="/oauth-success" element={<div><h1>HELLLLLLOO</h1></div>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
