@@ -15,9 +15,7 @@ export default function OAuthSuccess() {
 
   return (
     <div>
-      <h2>HubSpot Connected Successfully</h2>
-
-      <p>You can close this tab.</p>
+      <h1>OAuth Success Working</h1>
     </div>
   );
 }
