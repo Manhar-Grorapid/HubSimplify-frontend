@@ -14,6 +14,7 @@ export default function App() {
   }, []);
 
   console.log("WORKFLOW STATE:", workflow);
+  console.log("NEW FRONTEND BUILD ACTIVE");
 
   if (!workflow) {
     return (
