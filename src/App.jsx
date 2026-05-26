@@ -19,13 +19,17 @@ export default function App() {
         console.log("USER ID:", userId);
 
         console.log("WORKFLOW ID:", id);
+        console.log("FULL URL:", window.location.href);
+
+        console.log("SEARCH:", window.location.search);
+
+        console.log("USER ID BEFORE REQUEST:", userId);
 
         const response = await axios.get(
-          `https://hubsimplify-backend.onrender.com/workflow/${id}`,
-
+          `https://hubsimplify-backend.onrender.com/workflow/${id}?userId=${userId}`,
           {
             headers: {
-              "x-user-id": userId,
+              "x-user-id": String(userId),
             },
           },
         );
