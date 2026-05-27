@@ -34,7 +34,7 @@ export default function App() {
           fontFamily: "Arial",
         }}
       >
-        <h2>Waiting for workflow data...</h2>
+        <h2 className="bg-red-500">Waiting for workflow data...</h2>
       </div>
     );
   }
