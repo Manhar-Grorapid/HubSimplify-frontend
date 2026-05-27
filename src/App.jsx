@@ -5,7 +5,7 @@ export default function App() {
 
   useEffect(() => {
     function handleMessage(event) {
-      onsole.log("EVENT ORIGIN:", event.origin);
+      console.log("EVENT ORIGIN:", event.origin);
       console.log("MESSAGE RECEIVED:", event.data);
 
       if (event.data?.type === "WORKFLOW_DATA") {

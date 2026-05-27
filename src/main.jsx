@@ -13,5 +13,5 @@ root.render(
 
       <Route path="/oauth-success" element={<OAuthSuccess />} />
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
