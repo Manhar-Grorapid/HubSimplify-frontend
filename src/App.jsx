@@ -48,7 +48,7 @@ export default function App() {
 
           <div className="col-span-4">
             <div className="bg-white rounded-2xl shadow-md p-6 sticky top-6">
-              <h1 className="text-4xl font-bold text-gray-800 leading-tight">
+              <h1 className="text-4xl font-bold text-gray-800 leading-tight break-words">
                 {workflow.workflowName}
               </h1>
 
