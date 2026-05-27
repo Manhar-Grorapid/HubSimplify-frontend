@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import WorkflowStepCard from "./components/WorkflowStepCard";
 import WorkflowGraph from "./components/WorkflowGraph";
 
 export default function App() {
@@ -49,19 +48,51 @@ export default function App() {
 
           <div className="col-span-4">
             <div className="bg-white rounded-2xl shadow-md p-6 sticky top-6">
-              <h1 className="text-3xl font-bold text-gray-800">
+              <h1 className="text-4xl font-bold text-gray-800 leading-tight">
                 {workflow.workflowName}
               </h1>
 
-              <p className="text-gray-500 mt-2">{workflow.summary?.purpose}</p>
-
               <div className="mt-8">
-                <h2 className="text-lg font-semibold mb-4">Semantic Steps</h2>
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Workflow Type
+                  </h3>
 
-                <div className="space-y-4">
-                  {workflow.semanticSteps?.map((step, index) => (
-                    <WorkflowStepCard key={index} index={index} step={step} />
-                  ))}
+                  <p className="text-gray-600 mt-1">
+                    {workflow.summary?.workflowType}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Total Actions
+                  </h3>
+
+                  <p className="text-gray-600 mt-1">
+                    {workflow.summary?.totalActions}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Total Branches
+                  </h3>
+
+                  <p className="text-gray-600 mt-1">
+                    {workflow.summary?.totalBranches}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                    Action Types
+                  </h3>
+
+                  <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                    {workflow.summary?.actionTypes?.map((type, index) => (
+                      <li key={index}>{type}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -75,7 +106,7 @@ export default function App() {
                 Workflow Graph
               </h2>
 
-              <div className="border-2 border-dashed border-gray-300 rounded-xl h-[700px] flex items-center justify-center text-gray-400">
+              <div className="border-2 border-dashed border-gray-300 rounded-xl h-[700px] overflow-hidden">
                 <WorkflowGraph workflow={workflow} />
               </div>
             </div>
