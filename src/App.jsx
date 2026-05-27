@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import WorkflowStepCard from "./components/WorkflowStepCard";
 
 export default function App() {
   const [workflow, setWorkflow] = useState(null);
@@ -48,6 +49,11 @@ export default function App() {
           </h1>
 
           <p className="text-gray-500 mt-2">{workflow.summary?.purpose}</p>
+          <div className="mt-6 space-y-4">
+            {workflow.semanticSteps?.map((step, index) => (
+              <WorkflowStepCard key={index} index={index} step={step} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
