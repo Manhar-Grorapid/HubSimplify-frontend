@@ -34,33 +34,22 @@ export default function App() {
           fontFamily: "Arial",
         }}
       >
-        <h2 className="bg-red-500">Waiting for workflow data...</h2>
+        <h2>Waiting for workflow data...</h2>
       </div>
     );
   }
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily: "Arial",
-      }}
-    >
-      <h1>{workflow.workflowName}</h1>
+    <div className="min-h-screen bg-gray-100 p-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-md p-6">
+          <h1 className="text-3xl font-bold text-gray-800">
+            {workflow.workflowName}
+          </h1>
 
-      <p>{workflow.summary?.purpose}</p>
-
-      <hr />
-
-      <h2>Semantic Steps</h2>
-
-      <ul>
-        {workflow.semanticSteps?.map((step, index) => (
-          <li key={index}>
-            {typeof step === "string" ? step : JSON.stringify(step)}
-          </li>
-        ))}
-      </ul>
+          <p className="text-gray-500 mt-2">{workflow.summary?.purpose}</p>
+        </div>
+      </div>
     </div>
   );
 }
