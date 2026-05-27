@@ -76,7 +76,7 @@ export default function App() {
               </h2>
 
               <div className="border-2 border-dashed border-gray-300 rounded-xl h-[700px] flex items-center justify-center text-gray-400">
-                <WorkflowGraph />
+                <WorkflowGraph workflow={workflow} />
               </div>
             </div>
           </div>

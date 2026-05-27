@@ -1,48 +1,43 @@
 import ReactFlow from "reactflow";
 import "reactflow/dist/style.css";
 
-export default function WorkflowGraph() {
-  const nodes = [
-    {
-      id: "1",
+export default function WorkflowGraph({ workflow }) {
+  if (!workflow) {
+    return null;
+  }
 
-      position: {
-        x: 100,
-        y: 100,
-      },
+  const nodes = workflow.semanticSteps.map((step, index) => ({
+    id: String(index + 1),
 
-      data: {
-        label: "Trigger",
-      },
-
-      type: "default",
+    position: {
+      x: 250,
+      y: index * 180,
     },
 
-    {
-      id: "2",
+    data: {
+      label: `
 
-      position: {
-        x: 100,
-        y: 250,
-      },
+          ${step.condition || "Condition"}
 
-      data: {
-        label: "Delay",
-      },
+          →
 
-      type: "default",
+          ${step.action || "Action"}
+
+        `,
     },
-  ];
 
-  const edges = [
-    {
-      id: "e1-2",
+    type: "default",
+  }));
 
-      source: "1",
+  const edges = workflow.semanticSteps.slice(0, -1).map((_, index) => ({
+    id: `e${index + 1}-${index + 2}`,
 
-      target: "2",
-    },
-  ];
+    source: String(index + 1),
+
+    target: String(index + 2),
+
+    animated: true,
+  }));
 
   return (
     <div className="w-full h-full">
