@@ -10,6 +10,7 @@ export default defineConfig({
   ],
 
   build: {
+    cssCodeSplit: false,
     rollupOptions: {
       input: {
         main: resolve(
