@@ -9,7 +9,7 @@ console.log("INJECTED JS LOADED");
 
 const root = document.getElementById("workflow-simplifier-root");
 
-const workflow = window.workflowSimplifierData;
+const workflow = JSON.parse(root.dataset.workflow);
 
 const reactRoot = ReactDOM.createRoot(root);
 
