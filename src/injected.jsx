@@ -1,20 +1,16 @@
-import React from "react";
 import "./index.css";
+
+import React from "react";
 import ReactDOM from "react-dom/client";
 
 import InjectedApp from "./components/InjectedApp";
 
-const container = document.getElementById("workflow-simplifier-root");
+console.log("INJECTED JS LOADED");
 
-const workflow = JSON.parse(container.dataset.workflow);
+const root = document.getElementById("workflow-simplifier-root");
 
-const root = ReactDOM.createRoot(container);
+const workflow = window.workflowSimplifierData;
 
-root.render(
-  <InjectedApp
-    workflow={workflow}
-    onClose={() => {
-      container.remove();
-    }}
-  />,
-);
+const reactRoot = ReactDOM.createRoot(root);
+
+reactRoot.render(<InjectedApp workflow={workflow} />);
