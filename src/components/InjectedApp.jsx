@@ -2,7 +2,7 @@ import WorkflowGraph from "./WorkflowGraph";
 
 export default function InjectedApp({ workflow, onClose }) {
   return (
-    <div className="fixed inset-0 bg-white z-[999999] overflow-auto">
+    <div className="w-full min-h-screen bg-gray-100">
       <button
         onClick={onClose}
         className="fixed top-6 right-6 bg-red-500 text-white px-4 py-2 rounded-lg"
