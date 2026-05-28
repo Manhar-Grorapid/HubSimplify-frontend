@@ -5,9 +5,9 @@ import "./index.css";
 
 import InjectedApp from "./components/InjectedApp";
 
-const workflow = window.__WORKFLOW_DATA__;
-
 const container = document.getElementById("workflow-simplifier-root");
+
+const workflow = JSON.parse(container.dataset.workflow);
 
 const root = ReactDOM.createRoot(container);
 
