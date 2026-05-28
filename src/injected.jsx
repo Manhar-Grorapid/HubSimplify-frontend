@@ -5,25 +5,15 @@ import "./index.css";
 
 import InjectedApp from "./components/InjectedApp";
 
-window.renderWorkflowSimplifier = (
-    container,
-    workflow
-) => {
+globalThis.renderWorkflowSimplifier = (container, workflow) => {
+  const root = ReactDOM.createRoot(container);
 
-    const root =
-        ReactDOM.createRoot(container);
-
-    root.render(
-
-        <InjectedApp
-            workflow={workflow}
-            onClose={() => {
-
-                container.remove();
-
-            }}
-        />
-
-    );
-
+  root.render(
+    <InjectedApp
+      workflow={workflow}
+      onClose={() => {
+        container.remove();
+      }}
+    />,
+  );
 };
