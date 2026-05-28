@@ -10,23 +10,10 @@ export default defineConfig({
   ],
 
   build: {
-    cssCodeSplit: false,
     rollupOptions: {
       input: {
-        main: resolve(
-          __dirname,
-          "index.html"
-        ),
-
-        injected: resolve(
-          __dirname,
-          "src/injected.jsx"
-        ),
-      },
-
-      output: {
-        entryFileNames:
-          "[name].js",
+        main: "index.html",
+        injected: "src/injected-simple.jsx",
       },
     },
   },
