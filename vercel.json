@@ -4,8 +4,8 @@
             "source": "/(.*)",
             "headers": [
                 {
-                    "key": "X-Frame-Options",
-                    "value": "ALLOWALL"
+                    "key": "Content-Security-Policy",
+                    "value": "frame-ancestors 'self' https://app-na2.hubspot.com https://*.hubspot.com;"
                 }
             ]
         }
