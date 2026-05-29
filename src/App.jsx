@@ -5,6 +5,7 @@ export default function App() {
   const [workflow, setWorkflow] = useState(null);
 
   useEffect(() => {
+    console.log("FETCH VERSION ACTIVE");
     async function loadWorkflow() {
       try {
         const workflowId = window.location.pathname.split("/workflow/")[1];
