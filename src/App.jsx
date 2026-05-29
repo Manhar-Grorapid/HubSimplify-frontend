@@ -5,22 +5,37 @@ export default function App() {
   const [workflow, setWorkflow] = useState(null);
 
   useEffect(() => {
-    function handleMessage(event) {
-      console.log("EVENT ORIGIN:", event.origin);
-      console.log("MESSAGE RECEIVED:", event.data);
+    async function loadWorkflow() {
+      try {
+        const workflowId = window.location.pathname.split("/workflow/")[1];
 
-      if (event.data?.type === "WORKFLOW_DATA") {
-        console.log("SETTING WORKFLOW");
+        const userId = new URLSearchParams(window.location.search).get(
+          "userId",
+        );
 
-        setWorkflow(event.data.payload);
+        console.log("WORKFLOW ID:", workflowId);
+        console.log("USER ID:", userId);
+
+        const response = await fetch(
+          `https://hubsimplify-backend.onrender.com/workflow/${workflowId}`,
+          {
+            headers: {
+              "x-user-id": userId,
+            },
+          },
+        );
+
+        const data = await response.json();
+
+        console.log("WORKFLOW RESPONSE:", data);
+
+        setWorkflow(data);
+      } catch (error) {
+        console.error("LOAD ERROR:", error);
       }
     }
 
-    window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
+    loadWorkflow();
   }, []);
 
   console.log("WORKFLOW STATE:", workflow);
