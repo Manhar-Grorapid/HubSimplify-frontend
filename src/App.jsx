@@ -41,7 +41,7 @@ export default function App() {
 
   console.log("WORKFLOW STATE:", workflow);
 
-  console.log("NEW FRONTEND BUILD ACTIVE");
+  console.log("Manhar test");
 
   if (!workflow) {
     return (
