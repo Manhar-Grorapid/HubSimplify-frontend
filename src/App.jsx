@@ -6,6 +6,7 @@ export default function App() {
 
   useEffect(() => {
     console.log("Build 9999999");
+    console.log("Build 1119999999");
     async function loadWorkflow() {
       try {
         const workflowId = window.location.pathname.split("/workflow/")[1];
