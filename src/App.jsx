@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import WorkflowGraph from "./components/WorkflowGraph";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function App() {
   const [workflow, setWorkflow] = useState(null);
@@ -64,55 +65,49 @@ export default function App() {
           {/* LEFT PANEL */}
 
           <div className="col-span-4">
-            <div className="bg-white rounded-2xl shadow-md p-6 sticky top-6">
-              <h1 className="text-4xl font-bold text-gray-800 leading-tight break-words">
-                {workflow.workflowName}
-              </h1>
+            <Card className="sticky top-6 shadow-md">
+              <CardContent className="p-6">
+                <h1 className="text-3xl font-bold leading-tight wrap-break-word">
+                  {workflow.workflowName}
+                </h1>
 
-              <div className="mt-8">
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    Workflow Type
-                  </h3>
+                <div className="mt-8">
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold">Workflow Type</h3>
 
-                  <p className="text-gray-600 mt-1">
-                    {workflow.summary?.workflowType}
-                  </p>
+                    <p className="text-muted-foreground mt-1">
+                      {workflow.summary?.workflowType}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold">Total Actions</h3>
+
+                    <p className="text-muted-foreground mt-1">
+                      {workflow.summary?.totalActions}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold">Total Branches</h3>
+
+                    <p className="text-muted-foreground mt-1">
+                      {workflow.summary?.totalBranches}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Action Types</h3>
+
+                    <ul className="list-disc pl-5 text-muted-foreground space-y-1">
+                      {workflow.summary?.actionTypes?.map((type, index) => (
+                        <li key={index}>{type}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    Total Actions
-                  </h3>
-
-                  <p className="text-gray-600 mt-1">
-                    {workflow.summary?.totalActions}
-                  </p>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    Total Branches
-                  </h3>
-
-                  <p className="text-gray-600 mt-1">
-                    {workflow.summary?.totalBranches}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    Action Types
-                  </h3>
-
-                  <ul className="list-disc pl-5 text-gray-600 space-y-1">
-                    {workflow.summary?.actionTypes?.map((type, index) => (
-                      <li key={index}>{type}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* RIGHT PANEL */}
