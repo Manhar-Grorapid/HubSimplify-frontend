@@ -19,7 +19,7 @@ export default function WorkflowGraph({ workflow }) {
 
       position: {
         x: 100,
-        y: index * 220,
+        y: index * 260,
       },
 
       data: {
@@ -27,12 +27,14 @@ export default function WorkflowGraph({ workflow }) {
       },
 
       style: {
-        background: "#FEF3C7",
-        border: "1px solid #FCD34D",
-        borderRadius: "10px",
-        padding: "10px",
-        width: 180,
+        background: "#fefce8",
+        border: "2px solid #eab308",
+        borderRadius: "14px",
+        padding: "16px",
+        width: 260,
         textAlign: "center",
+        fontWeight: "600",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
       },
     });
 
@@ -42,7 +44,7 @@ export default function WorkflowGraph({ workflow }) {
 
       position: {
         x: 420,
-        y: index * 220,
+        y: index * 260,
       },
 
       data: {
@@ -50,12 +52,14 @@ export default function WorkflowGraph({ workflow }) {
       },
 
       style: {
-        background: "#DBEAFE",
-        border: "1px solid #60A5FA",
-        borderRadius: "10px",
-        padding: "10px",
-        width: 220,
+        background: "#eff6ff",
+        border: "2px solid #3b82f6",
+        borderRadius: "14px",
+        padding: "16px",
+        width: 290,
         textAlign: "center",
+        fontWeight: "600",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
       },
     });
 

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import WorkflowGraph from "./components/WorkflowGraph";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 export default function App() {
   const [workflow, setWorkflow] = useState(null);
@@ -47,13 +49,16 @@ export default function App() {
 
   if (!workflow) {
     return (
-      <div
-        style={{
-          padding: "20px",
-          fontFamily: "Arial",
-        }}
-      >
-        <h2>Waiting for workflow data...</h2>
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+        <Card className="w-full max-w-md shadow-md">
+          <CardContent className="p-8 text-center">
+            <h2 className="text-2xl font-semibold mb-2">Loading Workflow</h2>
+
+            <p className="text-muted-foreground">
+              Fetching workflow data from HubSpot...
+            </p>
+          </CardContent>
+        </Card>
       </div>
     );
   }
@@ -71,39 +76,27 @@ export default function App() {
                   {workflow.workflowName}
                 </h1>
 
-                <div className="mt-8">
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold">Workflow Type</h3>
+                <Separator className="my-6" />
+                <div className="flex flex-wrap gap-2 mb-8">
+                  <Badge variant="secondary">
+                    {workflow.summary?.workflowType}
+                  </Badge>
 
-                    <p className="text-muted-foreground mt-1">
-                      {workflow.summary?.workflowType}
-                    </p>
-                  </div>
+                  <Badge>{workflow.summary?.totalActions} Actions</Badge>
 
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold">Total Actions</h3>
+                  <Badge variant="outline">
+                    {workflow.summary?.totalBranches} Branches
+                  </Badge>
+                </div>
 
-                    <p className="text-muted-foreground mt-1">
-                      {workflow.summary?.totalActions}
-                    </p>
-                  </div>
-
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold">Total Branches</h3>
-
-                    <p className="text-muted-foreground mt-1">
-                      {workflow.summary?.totalBranches}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Action Types</h3>
-
-                    <ul className="list-disc pl-5 text-muted-foreground space-y-1">
-                      {workflow.summary?.actionTypes?.map((type, index) => (
-                        <li key={index}>{type}</li>
-                      ))}
-                    </ul>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Action Types</h3>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {workflow.summary?.actionTypes?.map((type, index) => (
+                      <Badge key={index} variant="outline">
+                        {type}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
               </CardContent>
@@ -113,15 +106,15 @@ export default function App() {
           {/* RIGHT PANEL */}
 
           <div className="col-span-8">
-            <div className="bg-white rounded-2xl shadow-md p-6 min-h-[800px]">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Workflow Graph
-              </h2>
+            <Card className="shadow-md">
+              <CardContent className="p-6">
+                <h2 className="text-2xl font-bold mb-6">Workflow Graph</h2>
 
-              <div className="border-2 border-dashed border-gray-300 rounded-xl h-[700px] overflow-hidden">
-                <WorkflowGraph workflow={workflow} />
-              </div>
-            </div>
+                <div className="border rounded-xl h-[700px] overflow-hidden">
+                  <WorkflowGraph workflow={workflow} />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
